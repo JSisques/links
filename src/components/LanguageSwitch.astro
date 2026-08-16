@@ -1,0 +1,62 @@
+---
+import { languages, type Lang } from '../i18n/ui';
+import { pathForLang, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="lang-switch" role="group" aria-label={t('lang.switch')}>
+  {
+    (Object.entries(languages) as [Lang, string][]).map(([code, label]) => (
+      <a
+        class={`lang-option${code === lang ? ' is-active' : ''}`}
+        href={pathForLang(code)}
+        aria-current={code === lang ? 'page' : undefined}
+      >
+        {label}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .lang-switch {
+    align-self: flex-end;
+    display: inline-flex;
+    gap: 2px;
+    padding: 3px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-default);
+    background: var(--bg-surface);
+  }
+  .lang-option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--ls-caps);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition:
+      background var(--dur-fast) var(--ease-out),
+      color var(--dur-fast) var(--ease-out);
+  }
+  .lang-option:hover {
+    color: var(--text-secondary);
+  }
+  .lang-option.is-active {
+    background: var(--bg-surface-raised);
+    color: var(--text-primary);
+  }
+</style>

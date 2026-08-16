@@ -1,0 +1,16 @@
+{
+  "name": "links",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.123",
+    "astro": "^7.2.2",
+    "astro-icon": "^1.1.5"
+  }
+}

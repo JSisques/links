@@ -1,0 +1,41 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="visits">
+  <Icon name="lucide:eye" width={14} height={14} />
+  <span><span id="visit-count">0</span> {t('visits.label')}</span>
+</div>
+
+<script>
+  try {
+    const key = 'jsisques_link_visits';
+    const n = parseInt(localStorage.getItem(key) || '0', 10) + 1;
+    localStorage.setItem(key, String(n));
+    const el = document.getElementById('visit-count');
+    if (el) el.textContent = String(n);
+  } catch {
+    // localStorage unavailable (private mode, etc.) — leave the fallback count.
+  }
+</script>
+
+<style>
+  .visits {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-top: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+</style>

@@ -1,0 +1,78 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<a class="promo-card ll-link" href="https://landing.sisqueslabs.com" target="_blank" rel="noopener">
+  <span class="promo-icon">
+    <Icon name="lucide:rocket" width={20} height={20} />
+  </span>
+  <span class="promo-text">
+    <span class="promo-title">{t('labs.title')}</span>
+    <span class="promo-subtitle">{t('labs.subtitle')}</span>
+  </span>
+  <Icon name="lucide:arrow-up-right" width={16} height={16} class="promo-arrow" />
+</a>
+
+<style>
+  .promo-card {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    background: var(--bg-surface-raised);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition:
+      transform var(--dur-base) var(--ease-out),
+      box-shadow var(--dur-base) var(--ease-out);
+  }
+  .promo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .promo-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    background: var(--accent);
+    color: var(--text-on-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .promo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+  }
+  .promo-title {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    font-weight: var(--fw-bold);
+    color: var(--text-primary);
+  }
+  .promo-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+  }
+  .promo-card :global(.promo-arrow) {
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+</style>
