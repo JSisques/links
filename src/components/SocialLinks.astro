@@ -1,0 +1,89 @@
+---
+import { Icon } from 'astro-icon/components';
+import BrandIcon from './BrandIcon.astro';
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="social-row">
+  <a
+    class="social-icon ll-link"
+    href="https://github.com/JSisques"
+    target="_blank"
+    rel="noopener"
+    aria-label={t('social.github')}
+  >
+    <BrandIcon name="github" />
+  </a>
+  <a
+    class="social-icon ll-link"
+    href="https://www.linkedin.com/in/jsisques"
+    target="_blank"
+    rel="noopener"
+    aria-label={t('social.linkedin')}
+  >
+    <BrandIcon name="linkedin" />
+  </a>
+  <a
+    class="social-icon ll-link"
+    href="https://blog.jsisques.net"
+    target="_blank"
+    rel="noopener"
+    aria-label={t('social.blog')}
+  >
+    <Icon name="lucide:rss" width={18} height={18} />
+  </a>
+  <a class="social-icon ll-link" href="mailto:hola@jsisques.dev" aria-label={t('social.email')}>
+    <Icon name="lucide:mail" width={18} height={18} />
+  </a>
+  <span class="social-icon is-disabled" title={t('social.instagram')} aria-label={t('social.instagram')}>
+    <BrandIcon name="instagram" />
+  </span>
+  <span class="social-icon is-disabled" title={t('social.tiktok')} aria-label={t('social.tiktok')}>
+    <BrandIcon name="tiktok" />
+  </span>
+  <span class="social-icon is-disabled" title={t('social.youtube')} aria-label={t('social.youtube')}>
+    <BrandIcon name="youtube" />
+  </span>
+</div>
+
+<style>
+  .social-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-default);
+    background: var(--bg-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition:
+      border-color var(--dur-fast) var(--ease-out),
+      color var(--dur-fast) var(--ease-out),
+      transform var(--dur-fast) var(--ease-out);
+  }
+  a.social-icon:hover {
+    border-color: var(--accent-border);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .social-icon.is-disabled {
+    border-style: dashed;
+    color: var(--text-muted);
+    cursor: default;
+  }
+</style>

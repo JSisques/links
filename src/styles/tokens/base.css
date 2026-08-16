@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: var(--accent);
+}
+a:hover {
+  color: var(--accent-hover);
+}
+::selection {
+  background: var(--accent-muted);
+  color: var(--text-primary);
+}
+code,
+pre,
+kbd {
+  font-family: var(--font-mono);
+}

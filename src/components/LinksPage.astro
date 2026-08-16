@@ -1,0 +1,79 @@
+---
+import Avatar from './Avatar.astro';
+import SocialLinks from './SocialLinks.astro';
+import ContactButton from './ContactButton.astro';
+import PromoCard from './PromoCard.astro';
+import ResourceList from './ResourceList.astro';
+import VisitCounter from './VisitCounter.astro';
+import LanguageSwitch from './LanguageSwitch.astro';
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="ll-page">
+  <div class="ll-container">
+    <LanguageSwitch lang={lang} />
+
+    <div class="profile">
+      <Avatar />
+      <div class="profile-text">
+        <div class="handle">jsis<span class="accent">ques</span></div>
+        <div class="role">{t('profile.role')}</div>
+        <div class="tagline">{t('profile.tagline')}</div>
+      </div>
+      <SocialLinks lang={lang} />
+      <ContactButton lang={lang} />
+    </div>
+
+    <PromoCard lang={lang} />
+
+    <ResourceList lang={lang} />
+
+    <VisitCounter lang={lang} />
+  </div>
+</div>
+
+<style>
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    text-align: center;
+  }
+  .profile-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  .handle {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  .handle .accent {
+    color: var(--accent);
+  }
+  .role {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: var(--fw-bold);
+    color: var(--text-primary);
+  }
+  .tagline {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    max-width: 320px;
+  }
+</style>
