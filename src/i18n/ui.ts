@@ -10,7 +10,8 @@ export const defaultLang: Lang = 'en';
 export const ui = {
   en: {
     'site.title': 'jsisques — links',
-    'site.description': 'jsisques — software developer. Building things, breaking things, learning in public.',
+    'site.description':
+      'jsisques — software developer. Building things, breaking things, learning in public.',
     'profile.role': 'software developer',
     'profile.tagline': 'building things, breaking things, learning in public.',
     'social.github': 'GitHub',
@@ -31,9 +32,11 @@ export const ui = {
   },
   es: {
     'site.title': 'jsisques — enlaces',
-    'site.description': 'jsisques — software developer. Construyendo cosas, rompiendo cosas, aprendiendo en público.',
+    'site.description':
+      'jsisques — software developer. Construyendo cosas, rompiendo cosas, aprendiendo en público.',
     'profile.role': 'software developer',
-    'profile.tagline': 'construyendo cosas, rompiendo cosas, aprendiendo en público.',
+    'profile.tagline':
+      'construyendo cosas, rompiendo cosas, aprendiendo en público.',
     'social.github': 'GitHub',
     'social.linkedin': 'LinkedIn',
     'social.blog': 'Blog',

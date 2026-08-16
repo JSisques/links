@@ -1,16 +1,52 @@
 {
   "name": "@jsisques/links",
-  "type": "module",
   "version": "0.0.0",
+  "description": "Static link-in-bio site for jsisques.",
+  "author": "Javier Plaza Sisques",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JSisques/links.git"
+  },
+  "homepage": "https://github.com/JSisques/links",
   "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.21.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "format": "prettier --write \"src/**/*.{ts,tsx,astro}\"",
+    "lint": "eslint . --fix",
+    "test": "vitest run --passWithNoTests",
+    "test:changed": "vitest run --changed HEAD~1 --passWithNoTests",
+    "test:watch": "vitest",
+    "test:cov": "vitest run --coverage --passWithNoTests",
+    "prepare": "node -e \"if(process.env.HUSKY!=='0')require('child_process').execSync('husky',{stdio:'inherit'})\""
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.123",
     "astro": "^7.2.2",
     "astro-icon": "^1.1.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^3.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.66.0",
+    "vitest": "^4.1.10"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,astro}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }
