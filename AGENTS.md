@@ -24,10 +24,13 @@ Claude Design project (`Links.dc.html`) and its `jsisques-design-system`.
 
 ## Commands
 
-- `npm install`
-- `npm run dev` — local dev server
-- `npm run build` — static build to `dist/`
-- `npm run preview` — preview the production build
+- `pnpm install`
+- `pnpm dev` — local dev server
+- `pnpm build` — type-check and static build to `dist/`
+- `pnpm preview` — preview the production build
+- `pnpm lint` — ESLint (`--fix`)
+- `pnpm format` — Prettier (`--write`)
+- `pnpm test` — Vitest
 
 ## Conventions
 
@@ -37,4 +40,8 @@ Claude Design project (`Links.dc.html`) and its `jsisques-design-system`.
   locale missing a key.
 - Adding a locale-specific route: create it under `src/pages/<locale>/` and reuse
   `LinksPage.astro` rather than duplicating markup.
-- Keep `package-lock.json` committed and in sync with `package.json`.
+- Keep `pnpm-lock.yaml` committed and in sync with `package.json`.
+- Husky runs `lint-staged` (format + lint) on commit and `build` + `test:changed` on push.
+- CI, GitHub Pages deploy, Docker builds, and the release train are shared reusable workflows
+  from [`sisques-labs/workflows`](https://github.com/sisques-labs/workflows) — see
+  `.github/workflows/`.

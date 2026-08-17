@@ -11,7 +11,12 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<a class="promo-card ll-link" href="https://landing.sisqueslabs.com" target="_blank" rel="noopener">
+<a
+  class="promo-card ll-link"
+  href="https://landing.sisqueslabs.com"
+  target="_blank"
+  rel="noopener"
+>
   <span class="promo-icon">
     <Icon name="lucide:rocket" width={20} height={20} />
   </span>
@@ -19,7 +24,12 @@ const t = useTranslations(lang);
     <span class="promo-title">{t('labs.title')}</span>
     <span class="promo-subtitle">{t('labs.subtitle')}</span>
   </span>
-  <Icon name="lucide:arrow-up-right" width={16} height={16} class="promo-arrow" />
+  <Icon
+    name="lucide:arrow-up-right"
+    width={16}
+    height={16}
+    class="promo-arrow"
+  />
 </a>
 
 <style>

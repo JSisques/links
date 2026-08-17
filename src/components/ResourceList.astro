@@ -23,7 +23,12 @@ const resources = [
   <div class="resources-list">
     {
       resources.map((r) => (
-        <a class="resource-card ll-link" href={r.url} target="_blank" rel="noopener">
+        <a
+          class="resource-card ll-link"
+          href={r.url}
+          target="_blank"
+          rel="noopener"
+        >
           <span class="resource-icon">
             <Icon name="lucide:file-text" width={18} height={18} />
           </span>
@@ -31,7 +36,12 @@ const resources = [
             <span class="resource-title">{r.title}</span>
             <span class="resource-subtitle">{r.subtitle}</span>
           </span>
-          <Icon name="lucide:arrow-up-right" width={16} height={16} class="resource-arrow" />
+          <Icon
+            name="lucide:arrow-up-right"
+            width={16}
+            height={16}
+            class="resource-arrow"
+          />
         </a>
       ))
     }
